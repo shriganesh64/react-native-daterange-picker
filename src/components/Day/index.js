@@ -14,6 +14,7 @@ const Day = ({
   dayTextStyle,
   disabledTextStyle,
   empty,
+  isToday = false
 }) => {
   const selectThis = () => {
     if (!disabled) {
@@ -51,6 +52,7 @@ const Day = ({
           style={{
             ...dayStyles,
             ...(selected && selectedStyles),
+            ...(isToday && !selected && styles.today),
             ...(disabled && disabledStyles),
           }}
         >
@@ -81,6 +83,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: "center",
     color: "black",
+  },
+  today:{
+    borderWidth:1,
+    borderColor: "#94A3B8",
+    height: "80%",
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
   },
   selected: {
     backgroundColor: "#3b83f7",

@@ -47,6 +47,7 @@ const DateRangePicker = ({
   buttonTextStyle,
   presetButtons,
   open,
+  footer
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [weeks, setWeeks] = useState([]);
@@ -261,6 +262,7 @@ const DateRangePicker = ({
             selected={_selected}
             disabled={_disabled}
             select={select}
+            isToday={_date.isSame(_moment(), "day")}
           />
         );
         if ((i + offset) % 7 === 0 || i === daysInMonth) {
@@ -394,6 +396,7 @@ const DateRangePicker = ({
                 )}
               </View>
             )}
+            {React.isValidElement(footer) && footer}
           </View>
         </View>
       </View>
